@@ -17,7 +17,7 @@ class RushingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create rushing" do
     assert_difference('Rushing.count') do
-      post rushings_url, params: { rushing: { 1st: @rushing.1st, 1st%: @rushing.1st%, 20+: @rushing.20+, 40+: @rushing.40+, att: @rushing.att, att/g: @rushing.att/g, avg: @rushing.avg, fum: @rushing.fum, lng: @rushing.lng, player: @rushing.player, pos: @rushing.pos, td: @rushing.td, team: @rushing.team, yds: @rushing.yds, yds/g: @rushing.yds/g } }
+      post rushings_url, params: { rushing: { first: @rushing.first, first_percentage: @rushing.first, twenty_plus: @rushing.twenty_plus, forty_plus: @rushing.forty_plus, att: @rushing.att, att_by_g: @rushing.att_by_g, avg: @rushing.avg, fum: @rushing.fum, lng: @rushing.lng, player: @rushing.player, pos: @rushing.pos, td: @rushing.td, team: @rushing.team, yds: @rushing.yds, yds_by_g: @rushing.yds_by_g } }
     end
 
     assert_redirected_to rushing_url(Rushing.last)
@@ -34,7 +34,7 @@ class RushingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update rushing" do
-    patch rushing_url(@rushing), params: { rushing: { 1st: @rushing.1st, 1st%: @rushing.1st%, 20+: @rushing.20+, 40+: @rushing.40+, att: @rushing.att, att/g: @rushing.att/g, avg: @rushing.avg, fum: @rushing.fum, lng: @rushing.lng, player: @rushing.player, pos: @rushing.pos, td: @rushing.td, team: @rushing.team, yds: @rushing.yds, yds/g: @rushing.yds/g } }
+    patch rushing_url(@rushing), params: { rushing: { first: @rushing.first, first_percentage: @rushing.first, twenty_plus: @rushing.twenty_plus, forty_plus: @rushing.forty_plus, att: @rushing.att, att_by_g: @rushing.att_by_g, avg: @rushing.avg, fum: @rushing.fum, lng: @rushing.lng, player: @rushing.player, pos: @rushing.pos, td: @rushing.td, team: @rushing.team, yds: @rushing.yds, yds_by_g: @rushing.yds_by_g } }
     assert_redirected_to rushing_url(@rushing)
   end
 

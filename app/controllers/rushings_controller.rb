@@ -69,6 +69,6 @@ class RushingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def rushing_params
-      params.require(:rushing).permit(:player, :team, :pos, :att, :att/g, :yds, :avg, :yds/g, :td, :lng, :1st, :1st%, :20+, :40+, :fum)
+      params.require(:rushing).permit(:player, :team, :pos, :att, :att_by_g, :yds, :avg, :yds_by_g, :td, :lng, :first, :first_percentage, :twnety_plus, :forty_plus, :fum)
     end
 end

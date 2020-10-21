@@ -5,16 +5,16 @@ one:
   team: MyString
   pos: MyString
   att: 1
-  att/g: 9.99
+  att_by_g: 9.99
   yds: 9.99
   avg: 9.99
-  yds/g: 9.99
+  yds_by_g: 9.99
   td: 9.99
   lng: MyString
-  1st: 9.99
-  1st%: 1.5
-  20+: 9.99
-  40+: 9.99
+  first: 9.99
+  first_percenatge: 1.5
+  twenty_plus: 9.99
+  forty_plus: 9.99
   fum: 9.99
 
 two:
@@ -22,14 +22,14 @@ two:
   team: MyString
   pos: MyString
   att: 1
-  att/g: 9.99
+  att_by_g: 9.99
   yds: 9.99
   avg: 9.99
-  yds/g: 9.99
+  yds_by_g: 9.99
   td: 9.99
   lng: MyString
-  1st: 9.99
-  1st%: 1.5
-  20+: 9.99
-  40+: 9.99
+  first: 9.99
+  first_percenatge: 1.5
+  twenty_plus: 9.99
+  forty_plus: 9.99
   fum: 9.99

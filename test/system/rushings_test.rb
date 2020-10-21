@@ -14,12 +14,12 @@ class RushingsTest < ApplicationSystemTestCase
     visit rushings_url
     click_on "New Rushing"
 
-    fill_in "1st", with: @rushing.1st
-    fill_in "1st%", with: @rushing.1st%
-    fill_in "20+", with: @rushing.20+
-    fill_in "40+", with: @rushing.40+
+    fill_in "1st", with: @rushing.first
+    fill_in "1st%", with: @rushing.first_percentage
+    fill_in "20+", with: @rushing.twenty_plus
+    fill_in "40+", with: @rushing.forty_plus
     fill_in "Att", with: @rushing.att
-    fill_in "Att/g", with: @rushing.att/g
+    fill_in "Att/g", with: @rushing.att_by_g
     fill_in "Avg", with: @rushing.avg
     fill_in "Fum", with: @rushing.fum
     fill_in "Lng", with: @rushing.lng
@@ -28,7 +28,7 @@ class RushingsTest < ApplicationSystemTestCase
     fill_in "Td", with: @rushing.td
     fill_in "Team", with: @rushing.team
     fill_in "Yds", with: @rushing.yds
-    fill_in "Yds/g", with: @rushing.yds/g
+    fill_in "Yds/g", with: @rushing.yds_by_g
     click_on "Create Rushing"
 
     assert_text "Rushing was successfully created"
@@ -39,12 +39,12 @@ class RushingsTest < ApplicationSystemTestCase
     visit rushings_url
     click_on "Edit", match: :first
 
-    fill_in "1st", with: @rushing.1st
-    fill_in "1st%", with: @rushing.1st%
-    fill_in "20+", with: @rushing.20+
-    fill_in "40+", with: @rushing.40+
+    fill_in "1st", with: @rushing.first
+    fill_in "1st%", with: @rushing.first_percentage
+    fill_in "20+", with: @rushing.twenty_plus
+    fill_in "40+", with: @rushing.forty_plus
     fill_in "Att", with: @rushing.att
-    fill_in "Att/g", with: @rushing.att/g
+    fill_in "Att/g", with: @rushing.att_by_g
     fill_in "Avg", with: @rushing.avg
     fill_in "Fum", with: @rushing.fum
     fill_in "Lng", with: @rushing.lng
@@ -53,7 +53,7 @@ class RushingsTest < ApplicationSystemTestCase
     fill_in "Td", with: @rushing.td
     fill_in "Team", with: @rushing.team
     fill_in "Yds", with: @rushing.yds
-    fill_in "Yds/g", with: @rushing.yds/g
+    fill_in "Yds/g", with: @rushing.yds_by_g
     click_on "Update Rushing"
 
     assert_text "Rushing was successfully updated"
