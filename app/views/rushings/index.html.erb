@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rushings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Player</th>
+      <th>Team</th>
+      <th>Pos</th>
+      <th>Att</th>
+      <th>Att/g</th>
+      <th>Yds</th>
+      <th>Avg</th>
+      <th>Yds/g</th>
+      <th>Td</th>
+      <th>Lng</th>
+      <th>1st</th>
+      <th>1st%</th>
+      <th>20+</th>
+      <th>40+</th>
+      <th>Fum</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rushings.each do |rushing| %>
+      <tr>
+        <td><%= rushing.player %></td>
+        <td><%= rushing.team %></td>
+        <td><%= rushing.pos %></td>
+        <td><%= rushing.att %></td>
+        <td><%= rushing.att/g %></td>
+        <td><%= rushing.yds %></td>
+        <td><%= rushing.avg %></td>
+        <td><%= rushing.yds/g %></td>
+        <td><%= rushing.td %></td>
+        <td><%= rushing.lng %></td>
+        <td><%= rushing.1st %></td>
+        <td><%= rushing.1st% %></td>
+        <td><%= rushing.20+ %></td>
+        <td><%= rushing.40+ %></td>
+        <td><%= rushing.fum %></td>
+        <td><%= link_to 'Show', rushing %></td>
+        <td><%= link_to 'Edit', edit_rushing_path(rushing) %></td>
+        <td><%= link_to 'Destroy', rushing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rushing', new_rushing_path %>
