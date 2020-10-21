@@ -4,18 +4,18 @@ class CreateRushings < ActiveRecord::Migration[6.0]
       t.string :player
       t.string :team
       t.string :pos
-      t.integer :att
-      t.decimal :att_by_g
-      t.decimal :yds
-      t.decimal :avg
-      t.decimal :yds_by_g
-      t.decimal :td
+      t.integer :att, :default => 0
+      t.decimal :att_by_g, :default => 0
+      t.decimal :yds, :default => 0
+      t.decimal :avg, :default => 0
+      t.decimal :yds_by_g, :default => 0
+      t.decimal :td, :default => 0
       t.string :lng
-      t.decimal :1st
-      t.float :1st_percentage
-      t.decimal :20plus
-      t.decimal :40plus
-      t.decimal :fum
+      t.decimal :first, :default => 0
+      t.float :first_percentage, :default => 0
+      t.decimal :twenty_plus, :default => 0
+      t.decimal :forty_plus, :default => 0
+      t.decimal :fum, :default => 0
 
       t.timestamps
     end
