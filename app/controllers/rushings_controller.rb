@@ -4,9 +4,9 @@ class RushingsController < ApplicationController
   # GET /rushings
   # GET /rushings.json
   def index
-    @rushings = Rushing.all
     @q = Rushing.ransack(params[:q])
-    @rushings = @q.result.paginate(:per_page => 10, :page => params[:page])
+    @q.sorts = ['player asc', 'yds asc'] if @q.sorts.empty?
+    @rushings = @q.result.paginate(:per_page => 55, :page => params[:page])
   end
 
   # GET /rushings/1
@@ -71,6 +71,8 @@ class RushingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def rushing_params
-      params.require(:rushing).permit(:player, :team, :pos, :att, :att_by_g, :yds, :avg, :yds_by_g, :td, :lng, :first, :first_percentage, :twnety_plus, :forty_plus, :fum)
+      params.require(:rushing).permit(:player, :team, :pos, :att, :att_by_g, :yds, :avg,
+                                      :yds_by_g, :td, :lng, :first, :first_percentage,
+                                      :twnety_plus, :forty_plus, :fum, :q)
     end
 end
