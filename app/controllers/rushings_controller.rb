@@ -6,15 +6,9 @@ class RushingsController < ApplicationController
   def index
     @rushings = Rushing.all
     @q = Rushing.ransack(params[:q])
-    @rushings = @q.result.page(params[:page])
+    @rushings = @q.result.paginate(:per_page => 10, :page => params[:page])
   end
 
-def index
-  @search = Component.search(search_params)
-  # make name the default sort column
-  @search.sorts = 'name' if @search.sorts.empty?
-  @component = @search.result().page(params[:page])
-end
   # GET /rushings/1
   # GET /rushings/1.json
   def show
