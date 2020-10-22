@@ -1,52 +1,73 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Rushings</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Player</th>
-      <th>Team</th>
-      <th>Pos</th>
-      <th>Att</th>
-      <th>Att/g</th>
-      <th>Yds</th>
-      <th>Avg</th>
-      <th>Yds/g</th>
-      <th>Td</th>
-      <th>Lng</th>
-      <th>1st</th>
-      <th>1st%</th>
-      <th>20+</th>
-      <th>40+</th>
-      <th>Fum</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container-fluid">
+  <div class="col-md-2">
+    <table class="search table table-striped table-hover table-bordered">
+      <tr>
+        <td>
+          <%= search_form_for @q do |f| %>
+          <%= f.text_field :player_cont, class: 'form-control', maxlength: 255, size: 30 %>
+          <%= f.submit class: 'btn btn-primary' %>
+          <%= link_to "Clear", request.path, class: "btn btn-default" %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <h2 class="sub-header">Rushings</h2>
+  <div class="column">
+    <div class="table-responsive col-md-15">
+      <table class="table table-striped table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Team</th>
+            <th>Pos</th>
+            <th>Att</th>
+            <th>Att/g</th>
+            <th>Yds</th>
+            <th>Avg</th>
+            <th>Yds/g</th>
+            <th>Td</th>
+            <th>Lng</th>
+            <th>1st</th>
+            <th>1st%</th>
+            <th>20+</th>
+            <th>40+</th>
+            <th>Fum</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @rushings.each do |rushing| %>
+            <tr>
+              <td><%= rushing.player %></td>
+              <td><%= rushing.team %></td>
+              <td><%= rushing.pos %></td>
+              <td><%= rushing.att %></td>
+              <td><%= rushing.att_by_g %></td>
+              <td><%= rushing.yds %></td>
+              <td><%= rushing.avg %></td>
+              <td><%= rushing.yds_by_g %></td>
+              <td><%= rushing.td %></td>
+              <td><%= rushing.lng %></td>
+              <td><%= rushing.first %></td>
+              <td><%= rushing.first_percentage %></td>
+              <td><%= rushing.twenty_plus %></td>
+              <td><%= rushing.forty_plus %></td>
+              <td><%= rushing.fum %></td>
+              <!-- <td><%= link_to 'Show', rushing %></td>
+              <td><%= link_to 'Edit', edit_rushing_path(rushing) %></td>
+              <td><%= link_to 'Destroy', rushing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       -->  </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
   <tbody>
-    <% @rushings.each do |rushing| %>
-      <tr>
-        <td><%= rushing.player %></td>
-        <td><%= rushing.team %></td>
-        <td><%= rushing.pos %></td>
-        <td><%= rushing.att %></td>
-        <td><%= rushing.att_by_g %></td>
-        <td><%= rushing.yds %></td>
-        <td><%= rushing.avg %></td>
-        <td><%= rushing.yds_by_g %></td>
-        <td><%= rushing.td %></td>
-        <td><%= rushing.lng %></td>
-        <td><%= rushing.first %></td>
-        <td><%= rushing.first_percentage %></td>
-        <td><%= rushing.twenty_plus %></td>
-        <td><%= rushing.forty_plus %></td>
-        <td><%= rushing.fum %></td>
-        <td><%= link_to 'Show', rushing %></td>
-        <td><%= link_to 'Edit', edit_rushing_path(rushing) %></td>
-        <td><%= link_to 'Destroy', rushing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+
   </tbody>
 </table>
 
