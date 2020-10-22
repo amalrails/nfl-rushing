@@ -44,6 +44,10 @@ body { margin: 0; }
     text-decoration-line: underline;
 }
 
+.bg-primary {
+    background-color: #011a2f;
+}
+
 .navbar-brand:hover {
  color: #ffffff;
  background-color: transparent;
@@ -68,6 +72,18 @@ h1, .h1, h2, .h2, h3, .h3 {
 }
 
 
+/*body {
+content: "";
+background: url(../assets/nfl.jpg);
+opacity: 0.5;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+position: absolute;
+z-index: -1;
+}*/
+
 .footer:hover {
   color: #FFD700;
 }
@@ -80,6 +96,27 @@ h1, .h1, h2, .h2, h3, .h3 {
 
 .search .btn-primary {
     margin-top: 10%;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #022a4c;
+    border-color: #2e6da4;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #022a4c;
+    border-color: #2e6da4;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus,
+  .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #022a4c;
+    border-color: #337ab7;
 }
 
 .search .form-control {
@@ -121,7 +158,7 @@ footer {
 }
 
 footer {
-  background-color: #337ab7;
+  background-color: #011a2f;
   padding: 20px 0;
 }
 
