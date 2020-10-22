@@ -42,10 +42,11 @@ body { margin: 0; }
     font-style: italic;
     font-weight: bold;
     font-size: x-large;
+    text-decoration-line: underline;
 }
 
 .navbar-brand:hover {
- color: #FFD700;
+ color: #ffffff;
  background-color: transparent;
  text-decoration-line: underline;
 }
@@ -55,10 +56,11 @@ footer {
     font-style: italic;
     font-weight: bold;
     margin-top: 100px;
+    text-decoration-line: underline;
 }
 
 a {
-    color: #ffffff;
+    color: #FFD700;
 }
 
 h1, .h1, h2, .h2, h3, .h3 {
