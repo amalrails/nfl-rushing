@@ -2,25 +2,33 @@
 
 <div class="container-fluid">
   <%= search_form_for @q, remote: false , url: rushings_path, :method => :get do |f| %>
-      <div class="col-md-2">
-        <table class="search table table-striped table-hover table-bordered ">
-          <tr>
-            <td>
-              <%= f.text_field :player_cont, placeholder: 'Player name' , class: 'form-control' %>
-              <%= f.submit class: 'btn btn-primary'%>
-              <%= link_to "Clear", request.path, class: "btn btn-default" %>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="form-group">
-                <%= link_to "Export CSV", rushings_path(params.permit!.merge(format: :csv)),
-                    class: 'btn btn-primary', id: 'to_csv'%>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div id="rushings"><%= render 'rushings' %></div>
-    <% end %>
+    <div class="col-md-2 <%= @rushings.count > @per_page ? 'new_width' : '' %>">
+      <table class="search table table-striped table-hover table-bordered ">
+        <tr>
+          <td>
+            <%= f.text_field :player_cont, placeholder: 'Player name' , class: 'form-control' %>
+            <%= f.submit class: 'btn btn-primary'%>
+            <%= link_to "Clear", request.path, class: "btn btn-default" %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-group">
+              <%= link_to "Export CSV", rushings_path(params.permit!.merge(format: :csv)),
+                  class: 'btn btn-primary export', id: 'to_csv'%>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-group">
+              <%= link_to "Import CSV", import_page_rushings_path,
+                  class: 'btn btn-primary export', id: 'to_csv', target: :_blank%>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="rushings"><%= render 'rushings' %></div>
+  <% end %>
 </div>

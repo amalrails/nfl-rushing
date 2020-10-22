@@ -6,7 +6,8 @@ class RushingsController < ApplicationController
   def index
     @q = Rushing.ransack(params[:q])
     @q.sorts = ['player asc', 'yds asc'] if @q.sorts.empty?
-    @rushings = @q.result.paginate(:per_page => 30, :page => params[:page])
+    @per_page = params[:per_page] || 30
+    @rushings = @q.result.paginate(:per_page => @per_page, :page => params[:page])
     respond_to do |format|
       format.html
       format.csv { send_data @rushings.to_csv(['player', 'team', 'pos', 'att', 'att_by_g', 'yds',
@@ -17,6 +18,9 @@ class RushingsController < ApplicationController
   end
 
   def export
+    @q = Rushing.ransack(params[:q])
+    @q.sorts = ['player asc', 'yds asc'] if @q.sorts.empty?
+    @rushings = @q.result.paginate(:per_page => @per_page, :page => params[:page])
     respond_to do |format|
       format.html
       format.csv { send_data @rushings.to_csv(['player', 'team', 'pos', 'att', 'att_by_g', 'yds',
@@ -26,8 +30,13 @@ class RushingsController < ApplicationController
     end
   end
 
+  def import_page
+  end
+
   def import
-    Rushing.import(params[:file])
+    path = File.join(Rails.root, 'tmp', 'upload', params[:file].original_filename)
+    file = File.write(path, params[:file].read)
+    ImportFileJob.perform_later(path)
     redirect_to root_url, notice: "Rushings imported."
   end
 

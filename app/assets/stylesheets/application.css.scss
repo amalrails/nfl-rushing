@@ -110,14 +110,14 @@ footer {
 }
 
 .footer a{
-    float: left;
-    height: 10px;
-    padding: 10px 10px;
-    line-height: 5px;
-    margin-left: -15px;
-    font-style: italic;
-    font-weight: bold;
-    font-size: x-large;
+  float: left;
+  height: 10px;
+  padding: 10px 10px;
+  line-height: 5px;
+  margin-left: -15px;
+  font-style: italic;
+  font-weight: bold;
+  font-size: x-large;
 }
 
 footer {
@@ -126,15 +126,17 @@ footer {
 }
 
 .table-hover tbody tr:hover td {
-    background: #EEE8AA;
+  background: #EEE8AA;
 }
 
 .column {
-    margin: 5px;
+  margin: 5px;
 }
-.col-md-2 {
-    margin-top: 1.5%;
+
+.new_width {
+  margin-top: 1.2%;
 }
+
 .export a {
   color: #fff;
 }
