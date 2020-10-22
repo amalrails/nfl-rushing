@@ -6,7 +6,29 @@ class RushingsController < ApplicationController
   def index
     @q = Rushing.ransack(params[:q])
     @q.sorts = ['player asc', 'yds asc'] if @q.sorts.empty?
-    @rushings = @q.result.paginate(:per_page => 55, :page => params[:page])
+    @rushings = @q.result.paginate(:per_page => 30, :page => params[:page])
+    respond_to do |format|
+      format.html
+      format.csv { send_data @rushings.to_csv(['player', 'team', 'pos', 'att', 'att_by_g', 'yds',
+                                               'avg', 'yds_by_g', 'td', 'lng', 'first',
+                                               'first_percentage', 'twnety_plus', 'forty_plus',
+                                               'fum']), filename: "rushings-#{Date.today}.csv"}
+    end
+  end
+
+  def export
+    respond_to do |format|
+      format.html
+      format.csv { send_data @rushings.to_csv(['player', 'team', 'pos', 'att', 'att_by_g', 'yds',
+                                               'avg', 'yds_by_g', 'td', 'lng', 'first',
+                                               'first_percentage', 'twnety_plus', 'forty_plus',
+                                               'fum']), filename: "rushings-#{Date.today}.csv"}
+    end
+  end
+
+  def import
+    Rushing.import(params[:file])
+    redirect_to root_url, notice: "Rushings imported."
   end
 
   # GET /rushings/1
@@ -64,15 +86,17 @@ class RushingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_rushing
-      @rushing = Rushing.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def rushing_params
-      params.require(:rushing).permit(:player, :team, :pos, :att, :att_by_g, :yds, :avg,
-                                      :yds_by_g, :td, :lng, :first, :first_percentage,
-                                      :twnety_plus, :forty_plus, :fum, :q)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_rushing
+    @rushing = Rushing.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def rushing_params
+    params.require(:q).permit! if params[:q]
+    params.require(:rushing).permit(:player, :team, :pos, :att, :att_by_g, :yds, :avg,
+                                    :yds_by_g, :td, :lng, :first, :first_percentage,
+                                    :twnety_plus, :forty_plus, :fum)
+  end
 end
