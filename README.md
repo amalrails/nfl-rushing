@@ -37,7 +37,7 @@ In this repo is a sample data file [`rushing.json`](/rushing.json).
     2. The user should be able to sort the players by _Total Rushing Yards_, _Longest Rush_ and _Total Rushing Touchdowns_
     3. The user should be able to filter by the player's name
     4. The user should be able to download the sorted data as a CSV, as well as a filtered subset
-    
+
 2. The system should be able to potentially support larger sets of data on the order of 10k records.
 
 3. Update the section `Installation and running this solution` in the README file explaining how to run your code
@@ -54,4 +54,4 @@ We will evaluate you on your ability to solve the problem defined in the require
 If you have any questions regarding requirements, do not hesitate to email your contact at theScore for clarification.
 
 ### Installation and running this solution
-... TODO
+The app is live in Heroku, can be viewed at https://dry-castle-67324.herokuapp.com/rushings
