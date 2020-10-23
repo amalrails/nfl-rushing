@@ -12,7 +12,7 @@ class Rushing < ApplicationRecord
   end
 
   def self.import(file)
-    CSV.foreach(file, headers: true) do |row|
+    CSV.foreach(file.path, headers: true) do |row|
       rushing_hash = row.to_hash
       rushing = find_or_create_by!(player: rushing_hash['player'], team: rushing_hash['team'])
       rushing.update_attributes(player: rushing_hash['player'], team: rushing_hash['team'],
@@ -24,6 +24,5 @@ class Rushing < ApplicationRecord
                                 twenty_plus: rushing_hash['twenty_plus'], forty_plus: rushing_hash['forty_plus'],
                                 fum: rushing_hash['fum'])
     end
-    File.delete(file)
   end
 end

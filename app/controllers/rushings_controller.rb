@@ -33,11 +33,16 @@ class RushingsController < ApplicationController
   def import_page
   end
 
+  # def import
+  #   path = File.join('tmp', params[:file].original_filename)
+  #   file = File.write(path, params[:file].read)
+  #   ImportFileJob.perform_later(path)
+  #   redirect_to root_url, notice: "Rushings will get imported in few minutes"
+  # end
+
   def import
-    path = File.join('tmp', params[:file].original_filename)
-    file = File.write(path, params[:file].read)
-    ImportFileJob.perform_later(path)
-    redirect_to root_url, notice: "Rushings will get imported in few minutes"
+    Rushing.import(params[:file])
+    redirect_to root_url, notice: "Rushings imported."
   end
 
   # GET /rushings/1
