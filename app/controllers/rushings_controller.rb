@@ -34,7 +34,7 @@ class RushingsController < ApplicationController
   end
 
   def import
-    path = File.join(Rails.root, 'tmp', 'upload', params[:file].original_filename)
+    path = File.join('tmp', params[:file].original_filename)
     file = File.write(path, params[:file].read)
     ImportFileJob.perform_later(path)
     redirect_to root_url, notice: "Rushings will get imported in few minutes"
