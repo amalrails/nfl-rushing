@@ -5,8 +5,8 @@ class Rushing < ApplicationRecord
   def self.to_csv(fields = column_names, options = {})
     CSV.generate(options) do |csv|
       csv << fields
-      all.each do |product|
-        csv << product.attributes.values_at(*fields)
+      all.each do |rushing|
+        csv << rushing.attributes.values_at(*fields)
       end
     end
   end
@@ -14,7 +14,6 @@ class Rushing < ApplicationRecord
   def self.import(file)
     CSV.foreach(file, headers: true) do |row|
       rushing_hash = row.to_hash
-      byebug
       rushing = find_or_create_by!(player: rushing_hash['player'], team: rushing_hash['team'])
       rushing.update_attributes(player: rushing_hash['player'], team: rushing_hash['team'],
                                 pos: rushing_hash['pos'], att: rushing_hash['att'],
