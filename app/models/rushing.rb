@@ -1,6 +1,7 @@
 class Rushing < ApplicationRecord
 
   validates_presence_of :player, :team
+  before_save :set_int_lng
 
   def self.to_csv(fields = column_names, options = {})
     CSV.generate(options) do |csv|
@@ -24,5 +25,11 @@ class Rushing < ApplicationRecord
                                 twenty_plus: rushing_hash['twenty_plus'], forty_plus: rushing_hash['forty_plus'],
                                 fum: rushing_hash['fum'])
     end
+  end
+
+  private
+
+  def set_int_lng
+    int_lng = lng.tr('^0-9-', '').to_i
   end
 end
