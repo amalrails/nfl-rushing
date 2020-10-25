@@ -12,7 +12,7 @@ one:
   td: 9.99
   lng: MyString
   first: 9.99
-  first_percenatge: 1.5
+  first_percentage: 1.5
   twenty_plus: 9.99
   forty_plus: 9.99
   fum: 9.99
@@ -29,7 +29,7 @@ two:
   td: 9.99
   lng: MyString
   first: 9.99
-  first_percenatge: 1.5
+  first_percentage: 1.5
   twenty_plus: 9.99
   forty_plus: 9.99
   fum: 9.99

@@ -17,22 +17,10 @@ class RushingsController < ApplicationController
     end
   end
 
-  def export
-    @q = Rushing.ransack(params[:q])
-    @q.sorts = ['player asc', 'yds asc'] if @q.sorts.empty?
-    @rushings = @q.result.paginate(:per_page => @per_page, :page => params[:page])
-    respond_to do |format|
-      format.html
-      format.csv { send_data @rushings.to_csv(['player', 'team', 'pos', 'att', 'att_by_g', 'yds',
-                                               'avg', 'yds_by_g', 'td', 'lng', 'first',
-                                               'first_percentage', 'twnety_plus', 'forty_plus',
-                                               'fum']), filename: "rushings-#{Date.today}.csv"}
-    end
-  end
-
   def import_page
   end
 
+  # Importing as a delayed job
   # def import
   #   path = File.join('tmp', params[:file].original_filename)
   #   file = File.write(path, params[:file].read)
