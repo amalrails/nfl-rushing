@@ -54,4 +54,12 @@ We will evaluate you on your ability to solve the problem defined in the require
 If you have any questions regarding requirements, do not hesitate to email your contact at theScore for clarification.
 
 ### Installation and running this solution
+
 The app is live in Heroku, can be viewed at https://dry-castle-67324.herokuapp.com/rushings
+
+##### How to run the app
+ 1. Clone repository
+ 2. cd into repository and run
+ 3. bundle install
+ 4. If you don't have bundler try running gem install bundler first.
+ 5. Open http://localhost:3000 on your browser to see the table.
